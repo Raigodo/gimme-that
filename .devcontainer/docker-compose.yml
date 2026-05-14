@@ -1,0 +1,28 @@
+services:
+  app:
+    image: mcr.microsoft.com/devcontainers/typescript-node:4-24-trixie
+    volumes:
+      - ../.:/workspace
+    command: sleep infinity
+    depends_on:
+      - db
+      - signaling
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: mydb
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  signaling:
+    image: funnyzak/y-webrtc-signaling:latest
+    ports:
+      - "4444:4444"
+
+volumes:
+  postgres-data:
