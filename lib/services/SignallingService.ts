@@ -11,7 +11,7 @@ import {
 } from "firebase/firestore";
 
 import { RoomId } from "../shared/ids";
-import { SignalMessage } from "../shared/SignallingMessage";
+import { SignalMessage } from "../shared/control-types";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDuN-Q-04J8GRh4DllvvJWYWE_9QjB_co4",
